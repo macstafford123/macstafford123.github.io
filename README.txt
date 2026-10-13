@@ -4,7 +4,7 @@ My personal portfolio. Plain HTML and CSS, no frameworks.
 
 ## What's here
 
-- Projects I've actually built and run (KIRO, referral platform, deals site, VPS)
+- Projects I've built and run (KIRO, an SEO platform, an automated operations system, and the VPS behind them)
 - Skills, certs, and work history
 - Data analytics section - adding projects throughout junior/senior year
 - Contact
