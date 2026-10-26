@@ -16,4 +16,4 @@ My personal portfolio: one page of plain HTML and CSS, hosted on GitHub Pages.
 
 Edit `index.html` or `style.css`, open `index.html` in a browser to check it, then commit and push to `main`. GitHub Pages republishes in about a minute. There is no build step and no JavaScript.
 
-Rule for content: it has to match my resume, and it never includes employer-internal figures or revenue numbers.
+Rule for content: it has to match my resume, and it only includes public, verifiable information.
