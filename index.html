@@ -1,195 +1,724 @@
 <!DOCTYPE html>
-<!--
-  MacAdam Stafford: personal portfolio
-  One HTML page + one stylesheet (style.css). No frameworks, no JavaScript, no build step.
-  Hosted on GitHub Pages: pushing to the main branch publishes the site.
-  Content rule: every claim here matches my resume. No employer-internal figures,
--->
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MacAdam Stafford | Data, Automation, and Presales</title>
-  <meta name="description" content="MacAdam Stafford: MSU Information Science (May 2027). Presales co-op at Motorola Solutions. I build data tools, automation, and AI agent systems.">
+    <meta charset="UTF-8">
+    <link rel="icon" href="favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MacAdam Stafford | Data, Automation & Presales</title>
+    <meta name="description" content="MSU Information Science '27. Presales COE Co-op at Motorola Solutions. I build data tools, automation, and AI agent systems.">
 
-  <!-- Link previews (LinkedIn, iMessage, Slack) read these tags -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="MacAdam Stafford | Data, Automation, and Presales">
-  <meta property="og:description" content="MSU Information Science (May 2027). Presales co-op at Motorola Solutions. I build data tools, automation, and AI agent systems.">
-  <meta property="og:image" content="https://macstafford123.github.io/images/og-image.png">
-  <meta property="og:url" content="https://macstafford123.github.io/">
-  <meta name="twitter:card" content="summary_large_image">
+    <!-- Open Graph / LinkedIn / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="MacAdam Stafford">
+    <meta property="og:title" content="MacAdam Stafford, Data & Automation, Presales @ Motorola Solutions">
+    <meta property="og:description" content="MSU Information Science '27. Presales COE Co-op @ Motorola Solutions. I build data tools, automation, and AI agent systems.">
+    <meta property="og:image" content="https://macstafford123.github.io/images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="MacAdam Stafford, Data & Automation, Presales @ Motorola Solutions">
+    <meta property="og:url" content="https://macstafford123.github.io">
 
-  <link rel="canonical" href="https://macstafford123.github.io/">
-  <link rel="icon" href="favicon.ico">
-  <link rel="stylesheet" href="style.css">
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="MacAdam Stafford, Data & Automation, Presales @ Motorola Solutions">
+    <meta name="twitter:description" content="MSU Information Science '27. Presales COE Co-op @ Motorola Solutions. Data tools, automation, and AI agent systems.">
+    <meta name="twitter:image" content="https://macstafford123.github.io/images/og-image.png">
+
+    <link rel="canonical" href="https://macstafford123.github.io/">
+    <meta name="theme-color" content="#111111">
+    <meta name="author" content="MacAdam Stafford">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', 'Segoe UI', Arial, sans-serif; color: #222; line-height: 1.7; background: #fff; -webkit-font-smoothing: antialiased; }
+
+        /* NAV */
+        nav {
+            background: #111;
+            color: white;
+            padding: 16px 48px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .nav-brand { font-weight: 700; font-size: 18px; color: white; text-decoration: none; letter-spacing: 0.5px; }
+        .nav-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin-left: 28px;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: white; }
+
+        /* HERO */
+        .hero {
+            background: #111;
+            color: white;
+            padding: 110px 48px 90px;
+            text-align: center;
+        }
+        .hero-label {
+            display: inline-block;
+            background: #222;
+            border: 1px solid #444;
+            color: #ccc;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 20px;
+            margin-bottom: 24px;
+        }
+        .hero h1 { font-size: 52px; font-weight: 700; margin-bottom: 16px; letter-spacing: -1px; }
+        .hero h1 span { color: #aaa; }
+        .hero p { font-size: 18px; color: #aaa; max-width: 600px; margin: 0 auto 36px; }
+        .hero-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+        .btn {
+            padding: 13px 28px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .btn-primary { background: white; color: #111; }
+        .btn-primary:hover { background: #eee; }
+        .btn-outline { background: transparent; color: white; border: 1.5px solid #444; }
+        .btn-outline:hover { border-color: #888; color: #eee; }
+        .btn-sm {
+            padding: 9px 18px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 13px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s;
+        }
+        .btn-dark { background: #111; color: white; }
+        .btn-dark:hover { background: #333; }
+        .btn-ghost { background: transparent; color: #555; border: 1px solid #ddd; }
+        .btn-ghost:hover { border-color: #aaa; color: #111; }
+
+        /* STATS BAR */
+        .stats-bar {
+            background: #f8f8f8;
+            border-bottom: 1px solid #eee;
+            padding: 24px 48px;
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+        .stat { text-align: center; }
+        .stat-number { font-size: 28px; font-weight: 700; color: #111; }
+        .stat-label { font-size: 13px; color: #777; margin-top: 2px; }
+
+        /* SECTIONS */
+        .section { padding: 72px 48px; max-width: 1040px; margin: 0 auto; }
+        .section-label {
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 10px;
+        }
+        h2 { font-size: 34px; font-weight: 700; margin-bottom: 14px; }
+        .section-sub { color: #666; font-size: 16px; max-width: 680px; margin-bottom: 40px; }
+
+        /* ABOUT */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+        .headshot {
+            width: 100%;
+            max-width: 360px;
+            aspect-ratio: 4/5;
+            object-fit: cover;
+            object-position: center top;
+            border-radius: 12px;
+            display: block;
+            margin: 0 auto;
+        }
+        .headshot-placeholder {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background: #f0f0f0;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #bbb;
+            font-size: 14px;
+            border: 2px dashed #ddd;
+            text-align: center;
+            gap: 10px;
+            padding: 20px;
+        }
+        .headshot-placeholder .ph-icon { font-size: 36px; }
+        .project-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .about-text p { color: #444; margin-bottom: 16px; font-size: 15.5px; }
+        .about-links { display: flex; gap: 10px; margin-top: 24px; flex-wrap: wrap; }
+
+        /* SKILLS */
+        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+        .skill-group h3 { font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #888; margin-bottom: 14px; }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .skill-tag {
+            background: #f3f3f3;
+            color: #222;
+            padding: 7px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            border: 1px solid #e8e8e8;
+        }
+        .skill-tag.highlight { background: #111; color: white; border-color: #111; }
+
+        /* CERTS */
+        .certs-list { margin-top: 40px; }
+        .certs-list h3 { font-size: 20px; font-weight: 700; margin-bottom: 20px; }
+        .cert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+        .cert-card {
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .cert-icon { font-size: 22px; }
+        .cert-icon img { width: 36px; height: 36px; object-fit: contain; border-radius: 4px; display: block; }
+        .cert-name { font-weight: 600; font-size: 14px; }
+        .cert-issuer { font-size: 12px; color: #888; margin-top: 2px; }
+
+        /* PROJECTS */
+        .projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+        .project-card {
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .project-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); transform: translateY(-2px); }
+        .project-card svg { width: 100%; height: 200px; display: block; }
+        .project-info { padding: 22px 24px; }
+        .project-tag {
+            display: inline-block;
+            background: #f3f3f3;
+            color: #555;
+            font-size: 11px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 10px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+        .project-info h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+        .project-info p { font-size: 14px; color: #555; margin-bottom: 18px; line-height: 1.6; }
+        .project-links { display: flex; gap: 8px; flex-wrap: wrap; }
+
+        /* EXPERIENCE */
+        .experience-list { display: flex; flex-direction: column; gap: 0; }
+        .exp-item {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            gap: 32px;
+            padding: 32px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .exp-item:last-child { border-bottom: none; }
+        .exp-date { font-size: 13px; color: #888; padding-top: 3px; }
+        .exp-company { font-size: 13px; font-weight: 600; color: #555; margin-top: 4px; }
+        .exp-content h3 { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+        .exp-content p { font-size: 14px; color: #555; line-height: 1.7; }
+        .exp-badge {
+            display: inline-block;
+            background: #111;
+            color: white;
+            font-size: 11px;
+            padding: 3px 10px;
+            border-radius: 10px;
+            margin-top: 10px;
+        }
+
+        /* CONTACT */
+        .contact-section { background: #111; color: white; }
+        .contact-inner { max-width: 1040px; margin: 0 auto; padding: 72px 48px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .contact-text h2 { font-size: 34px; color: white; margin-bottom: 14px; }
+        .contact-text p { color: #aaa; font-size: 16px; margin-bottom: 28px; }
+        .contact-links { display: flex; flex-direction: column; gap: 14px; }
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #ccc;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color 0.2s;
+        }
+        .contact-link:hover { color: white; }
+        .contact-link-icon { font-size: 18px; width: 28px; }
+        form { display: flex; flex-direction: column; gap: 14px; }
+        form input, form textarea {
+            padding: 13px 16px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 6px;
+            color: white;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+        form input::placeholder, form textarea::placeholder { color: #666; }
+        form input:focus, form textarea:focus { outline: none; border-color: #666; }
+        form textarea { min-height: 110px; resize: vertical; }
+        form button {
+            padding: 13px;
+            background: white;
+            color: #111;
+            border: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        form button:hover { background: #eee; }
+
+        /* FOOTER */
+        footer {
+            background: #0a0a0a;
+            color: #555;
+            text-align: center;
+            padding: 24px;
+            font-size: 13px;
+        }
+        footer a { color: #888; text-decoration: none; }
+        footer a:hover { color: white; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav { padding: 16px 20px; }
+            .nav-links { display: none; }
+            .hero { padding: 72px 24px 60px; }
+            .hero h1 { font-size: 36px; }
+            .stats-bar { gap: 28px; padding: 20px 24px; }
+            .section { padding: 52px 24px; }
+            .about-grid,
+            .skills-grid,
+            .projects-grid,
+            .cert-grid,
+            .contact-inner { grid-template-columns: 1fr; }
+            .exp-item { grid-template-columns: 1fr; gap: 6px; }
+            .exp-date { display: none; }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- ===== Top navigation: plain anchor links to sections on this page ===== -->
-  <header class="site-header">
-    <nav class="container nav">
-      <a class="nav-name" href="#top">MacAdam Stafford</a>
-      <ul class="nav-links">
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+<!-- NAV -->
+<nav>
+    <a href="#" class="nav-brand">MacAdam Stafford</a>
+    <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
 
-  <main id="top">
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-label">Open to Full-Time Roles, May 2027</div>
+    <h1>MacAdam <span>Stafford</span></h1>
+    <p>Data, automation, and presales. MSU Information Science '27. I build the automation that runs my own business, and I test it against real customers.</p>
+    <div class="hero-buttons">
+        <a href="#contact" class="btn btn-primary">Get in Touch</a>
+        <a href="https://linkedin.com/in/macadam-stafford" target="_blank" class="btn btn-outline">LinkedIn</a>
+        <a href="https://github.com/macstafford123" target="_blank" class="btn btn-outline">GitHub ↗</a>
+    </div>
+</div>
 
-    <!-- ===== Intro: who I am in two sentences, photo on the side ===== -->
-    <section class="container intro">
-      <div class="intro-text">
-        <p class="eyebrow">Open to full-time roles starting May 2027</p>
-        <h1>MacAdam Stafford</h1>
-        <p class="lead">
-          Information Science senior at Michigan State and presales co-op at Motorola Solutions.
-          I build the tools behind the work: pricing apps, data analyses, dashboards, and an
-          automation and AI agent system that I run myself.
-        </p>
-        <p class="buttons">
-          <a class="button" href="mailto:macstafford123@gmail.com">Email me</a>
-          <a class="button button-outline" href="https://linkedin.com/in/macadam-stafford">LinkedIn</a>
-          <a class="button button-outline" href="https://github.com/macstafford123">GitHub</a>
-        </p>
-      </div>
-      <img class="headshot" src="images/me.jpg" alt="Headshot of MacAdam Stafford" width="854" height="1068">
-    </section>
+<!-- STATS BAR -->
+<div class="stats-bar">
+    <div class="stat">
+        <div class="stat-number">1,300+</div>
+        <div class="stat-label">Completed Referrals Since Launch</div>
+    </div>
+    <div class="stat">
+        <div class="stat-number">4</div>
+        <div class="stat-label">Content Sites Self-Hosted</div>
+    </div>
+    <div class="stat">
+        <div class="stat-number">380+</div>
+        <div class="stat-label">SEO Landing Pages Live</div>
+    </div>
+    <div class="stat">
+        <div class="stat-number">32K+</div>
+        <div class="stat-label">Live Salesforce Records Analyzed</div>
+    </div>
+</div>
 
-    <!-- ===== Experience: same facts as the resume, written a little more conversationally ===== -->
-    <section id="experience" class="container">
-      <h2>Experience</h2>
-
-      <article class="job">
-        <div class="job-head">
-          <h3>Motorola Solutions, Presales Center of Excellence</h3>
-          <span class="dates">May 2026 to present</span>
+<!-- ABOUT -->
+<div class="section" id="about">
+    <div class="section-label">About</div>
+    <div class="about-grid">
+        <div class="about-text">
+            <p>I'm a senior studying Information Science at MSU (Class of 2027), focused on data analytics and technical solutions. Outside of class I've built real things: a referral-marketing business with 1,300+ completed referrals, the automation and AI agent system that runs it, a physical product I'm taking from concept toward manufacturing, and the web infrastructure I run it all on.</p>
+            <p>I started <strong>KIRO</strong> as a concept and worked with two contract mechanical engineers to get from concept to CNC-machined aluminum parts. It is a modular MagSafe accessory system. Still in development.</p>
+            <p>I'm a Presales COE Co-op on the Center of Excellence team at <strong>Motorola Solutions</strong>, building pricing tools, Salesforce data analyses, Looker Studio dashboards, and seller enablement for a Fortune 500 presales organization. It's the kind of work I want to keep doing, where the analytics actually feed a customer conversation. Long-term I'm aiming at presales and sales engineering.</p>
+            <div class="about-links">
+                <a href="https://linkedin.com/in/macadam-stafford" target="_blank" class="btn-sm btn-dark">LinkedIn</a>
+                <a href="https://github.com/macstafford123" target="_blank" class="btn-sm btn-dark">GitHub</a>
+            </div>
         </div>
-        <p class="role">Presales COE Co-op (Aug 2026 to present); Presales COE Intern (May to Aug 2026)</p>
-        <!-- Kept generic on purpose: no product names, customers, or internal figures -->
-        <ul>
-          <li>Built and deployed a budgetary pricing app (AppSheet front end, Google Apps Script engine) that turns a live master price list into PDF estimates, plus the seller quick-start guide for rollout.</li>
-          <li>Rebuilt a quote comparison tool so every pricing change is computed in code and reconciles to the dollar. AI only writes an optional summary. My first version was AI-only, and testing showed the totals were not reliable.</li>
-          <li>Analyzed 13,000+ Salesforce records and showed that an outlier-skewed average overstated quote turnaround; delivered a median-based analysis to presales leadership.</li>
-          <li>Replaced a 16-sheet manual tracker with one auto-refreshing view on a live Salesforce feed of 32,000+ records that flags compliance exceptions and stalled requests.</li>
-          <li>Led phase one of a three-tool pricing consolidation: merged 4,500+ parts, sorted 700+ conflicts for the pricing owner, and delivered a reconciled 7,000+ row master price list.</li>
-        </ul>
-      </article>
-
-      <article class="job">
-        <div class="job-head">
-          <h3>Self-Employed, Founder and Automation Developer</h3>
-          <span class="dates">Dec 2024 to present</span>
+        <div>
+            <img src="images/me.jpg" alt="MacAdam Stafford" class="headshot">
         </div>
-        <p class="role">Referral marketing</p>
-        <ul>
-          <li>Run a referral-marketing business that connects people with health-program referral offers through content sites and automated follow-up: 1,300+ completed referrals since launch.</li>
-          <li>Four content sites (380+ pages) built with Python static-site generators, structured data, GA4, and Search Console. 14,000+ Google search clicks in the 90 days ending Oct 2026.</li>
-          <li>Lead-capture forms and a Python routing service that applies eligibility rules, logs clicks, and sends alerts and follow-up email.</li>
-          <li>I run the servers myself: Linux, automatic HTTPS with Caddy, fail2ban, a private Tailscale network for internal tools, and nightly offsite backups.</li>
-        </ul>
-      </article>
-    </section>
+    </div>
+</div>
 
-    <!-- ===== Projects: things I built on my own time ===== -->
-    <section id="projects" class="container">
-      <h2>Projects</h2>
-      <div class="cards">
+<!-- SKILLS -->
+<div style="background: #fafafa; border-top: 1px solid #f0f0f0; border-bottom: 1px solid #f0f0f0;">
+    <div class="section" id="skills">
+        <div class="section-label">Skills & Certifications</div>
+        <h2>Technical Stack</h2>
+        <p class="section-sub">Tools and skills across analytics, infrastructure, and technical solutions.</p>
 
-        <article class="card">
-          <h3>AI operations platform</h3>
-          <p>A multi-agent system that runs 24/7 across a cloud Linux server and a Mac Studio serving a local 27B-parameter language model. Every model call goes through one priority job queue, a research worker runs in the background, and nothing goes out without my approval in an inbox.</p>
-          <p class="tags">Python, Linux, systemd, local LLM serving</p>
-        </article>
+        <div class="skills-grid">
+            <div class="skill-group">
+                <h3>Analytics & Visualization</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag highlight">SQL (working knowledge)</span>
+                    <span class="skill-tag highlight">Tableau</span>
+                    <span class="skill-tag highlight">Looker Studio</span>
+                    <span class="skill-tag highlight">Salesforce Data</span>
+                    <span class="skill-tag highlight">Excel / PivotTables</span>
+                    <span class="skill-tag">Data Visualization</span>
+                    <span class="skill-tag">Google Analytics (GA4)</span>
+                </div>
+            </div>
+            <div class="skill-group">
+                <h3>Infrastructure & Development</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag highlight">Linux / VPS</span>
+                    <span class="skill-tag highlight">Networking / DNS</span>
+                    <span class="skill-tag">Python (scripting)</span>
+                    <span class="skill-tag">JavaScript / TypeScript</span>
+                    <span class="skill-tag">Google Apps Script</span>
+                    <span class="skill-tag">AppSheet</span>
+                    <span class="skill-tag">HTTPS / SSL</span>
+                    <span class="skill-tag">Web Servers (Caddy)</span>
+                    <span class="skill-tag">Tailscale</span>
+                    <span class="skill-tag">Git</span>
+                    <span class="skill-tag">cron / systemd</span>
+                    <span class="skill-tag">Process Automation</span>
+                    <span class="skill-tag">SEO / Structured Data</span>
+                </div>
+            </div>
+        </div>
 
-        <article class="card">
-          <h3>Idea tournament</h3>
-          <p>I measured my own system and found the research worker was writing about 930 drafts a week that I never acted on. So I built a filter: critique plus pairwise Elo ranking, capped at two proposals a day. It launched in Oct 2026, so the results are still early.</p>
-          <p class="tags">Python, ranking, human-in-the-loop</p>
-        </article>
+        <div class="certs-list">
+            <h3>Certifications</h3>
 
-        <article class="card">
-          <h3>Mission Control dashboard</h3>
-          <p>A Next.js operations dashboard over 14 live data feeds, backed by 80+ scheduled jobs and a health check every 5 minutes that restarts failed services.</p>
-          <p class="tags">Next.js, TypeScript, cron</p>
-        </article>
+            <!-- Google Data Analytics Specialization highlight -->
+            <a href="https://www.coursera.org/account/accomplishments/professional-cert/SVD5W6BVFOZI" target="_blank" style="text-decoration:none;display:block;border: 2px solid #111; border-radius: 10px; padding: 18px 24px; display: flex; align-items: center; gap: 16px; margin-bottom: 20px; background: #111; color: white;">
+                <div class="cert-icon"><img src="googlecert.jpg" alt="Google" style="width:44px;height:44px;border-radius:6px;"></div>
+                <div style="flex:1;">
+                    <div style="font-weight:700;font-size:16px;">Google Data Analytics Certificate</div>
+                    <div style="font-size:12px;color:#aaa;margin-top:3px;">Google · Coursera · 2026 · Professional Certificate · Verify ↗</div>
+                </div>
+                <div style="font-size:13px;font-weight:700;color:#4ade80;">✓ Completed</div>
+            </a>
 
-        <article class="card">
-          <h3>Job-market pipeline</h3>
-          <p>Pulls 900+ postings from 86 public applicant-tracking-system feeds (Greenhouse, Lever, Ashby), scores them against my profile, and ranks them in the dashboard.</p>
-          <p class="tags">Python, REST APIs, JSON</p>
-        </article>
+            <!-- Google courses -->
+            <div style="font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:12px;font-weight:700;">Google Courses</div>
+            <div class="cert-grid" style="margin-bottom:28px;">
+                <a class="cert-card" href="https://www.coursera.org/account/accomplishments/records/4544D3PTSZXE" target="_blank" style="text-decoration:none;color:inherit;">
+                    <div class="cert-icon"><img src="googlecert.jpg" alt="Google"></div>
+                    <div>
+                        <div class="cert-name">Foundations: Data, Data, Everywhere</div>
+                        <div class="cert-issuer">Google · 2026 · Verify ↗</div>
+                    </div>
+                </a>
+                <a class="cert-card" href="https://www.coursera.org/account/accomplishments/records/HAYB44RS90H0" target="_blank" style="text-decoration:none;color:inherit;">
+                    <div class="cert-icon"><img src="googlecert.jpg" alt="Google"></div>
+                    <div>
+                        <div class="cert-name">Ask Questions to Make Data-Driven Decisions</div>
+                        <div class="cert-issuer">Google · 2026 · Verify ↗</div>
+                    </div>
+                </a>
+                <a class="cert-card" href="https://www.coursera.org/account/accomplishments/records/3BEOVRCM64UR" target="_blank" style="text-decoration:none;color:inherit;">
+                    <div class="cert-icon"><img src="googlecert.jpg" alt="Google"></div>
+                    <div>
+                        <div class="cert-name">Prepare Data for Exploration</div>
+                        <div class="cert-issuer">Google · 2026 · Verify ↗</div>
+                    </div>
+                </a>
+                <a class="cert-card" href="https://www.coursera.org/account/accomplishments/records/QJBK5NSCO49M" target="_blank" style="text-decoration:none;color:inherit;">
+                    <div class="cert-icon"><img src="googlecert.jpg" alt="Google"></div>
+                    <div>
+                        <div class="cert-name">Process Data from Dirty to Clean</div>
+                        <div class="cert-issuer">Google · 2026 · Verify ↗</div>
+                    </div>
+                </a>
+                <a class="cert-card" href="https://www.coursera.org/account/accomplishments/records/1LYM14SLRTFT" target="_blank" style="text-decoration:none;color:inherit;">
+                    <div class="cert-icon"><img src="googlecert.jpg" alt="Google"></div>
+                    <div>
+                        <div class="cert-name">Analyze Data to Answer Questions</div>
+                        <div class="cert-issuer">Google · 2026 · Verify ↗</div>
+                    </div>
+                </a>
+                <a class="cert-card" href="https://www.coursera.org/account/accomplishments/records/QWWSEKKZ0WST" target="_blank" style="text-decoration:none;color:inherit;">
+                    <div class="cert-icon"><img src="googlecert.jpg" alt="Google"></div>
+                    <div>
+                        <div class="cert-name">Share Data Through the Art of Visualization</div>
+                        <div class="cert-issuer">Google · 2026 · Verify ↗</div>
+                    </div>
+                </a>
+                <a class="cert-card" href="https://www.coursera.org/account/accomplishments/records/7KCZDFJV1608" target="_blank" style="text-decoration:none;color:inherit;">
+                    <div class="cert-icon"><img src="googlecert.jpg" alt="Google"></div>
+                    <div>
+                        <div class="cert-name">Google Data Analytics Capstone: Complete a Case Study</div>
+                        <div class="cert-issuer">Google · 2026 · Verify ↗</div>
+                    </div>
+                </a>
+                <a class="cert-card" href="https://www.coursera.org/account/accomplishments/records/642SJA6P448C" target="_blank" style="text-decoration:none;color:inherit;">
+                    <div class="cert-icon"><img src="googlecert.jpg" alt="Google"></div>
+                    <div>
+                        <div class="cert-name">Introduction to Data Analysis Using Python</div>
+                        <div class="cert-issuer">Google · 2026 · Verify ↗</div>
+                    </div>
+                </a>
+                <a class="cert-card" href="https://www.coursera.org/account/accomplishments/records/EDIJ88YZAGFV" target="_blank" style="text-decoration:none;color:inherit;">
+                    <div class="cert-icon"><img src="googlecert.jpg" alt="Google"></div>
+                    <div>
+                        <div class="cert-name">Accelerate Your Job Search with AI</div>
+                        <div class="cert-issuer">Google · 2026 · Verify ↗</div>
+                    </div>
+                </a>
+                <a class="cert-card" href="https://www.coursera.org/account/accomplishments/records/OOAIQSR77738" target="_blank" style="text-decoration:none;color:inherit;">
+                    <div class="cert-icon"><img src="googlecert.jpg" alt="Google"></div>
+                    <div>
+                        <div class="cert-name">Foundations of Digital Marketing and E-commerce</div>
+                        <div class="cert-issuer">Google · 2026 · Verify ↗</div>
+                    </div>
+                </a>
+            </div>
 
-        <article class="card">
-          <h3>KIRO (in progress)</h3>
-          <img src="images/kiro.jpg" alt="CNC-machined aluminum KIRO rings in gold, silver, and black" width="1200" height="675" loading="lazy">
-          <p>A modular MagSafe accessory system in CNC-machined aluminum. I scoped the product and worked with two contract mechanical engineers to get from concept to aluminum parts. Still in development.</p>
-          <p class="tags">Hardware, product development</p>
-        </article>
+            <!-- GCA certs -->
+            <div style="font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:12px;font-weight:700;">Global Career Accelerator</div>
+            <div class="cert-grid">
+                <a class="cert-card" href="https://www.credential.net/f1d22b65-01ef-48a4-b074-f7449c0d07b1#acc.BYwqoD1b" target="_blank" style="text-decoration:none;color:inherit;">
+                    <div class="cert-icon"><img src="dataanalysis.jpg" alt="Data Analysis"></div>
+                    <div>
+                        <div class="cert-name">Data Analysis Certificate</div>
+                        <div class="cert-issuer">Global Career Accelerator · 2025 · Verify ↗</div>
+                    </div>
+                </a>
+                <a class="cert-card" href="https://www.credential.net/738f5862-7a61-47ce-a8e8-cd807f1f4093#acc.cmiBEzFC" target="_blank" style="text-decoration:none;color:inherit;">
+                    <div class="cert-icon"><img src="dataviz.jpg" alt="Data Visualization"></div>
+                    <div>
+                        <div class="cert-name">Data Visualization Certificate</div>
+                        <div class="cert-issuer">Global Career Accelerator · 2025 · Verify ↗</div>
+                    </div>
+                </a>
+                <a class="cert-card" href="https://www.credential.net/b3b6ef62-247c-40b0-b9af-592e0ce8c3b5#acc.LjX6NUpR" target="_blank" style="text-decoration:none;color:inherit;">
+                    <div class="cert-icon"><img src="aicert.jpg" alt="AI"></div>
+                    <div>
+                        <div class="cert-name">AI Professional Skills Certificate</div>
+                        <div class="cert-issuer">Global Career Accelerator · 2025 · Verify ↗</div>
+                    </div>
+                </a>
+                <a class="cert-card" href="https://www.credential.net/f79256cb-7a54-4bab-9199-b05357728cff#acc.qiQOeR6M" target="_blank" style="text-decoration:none;color:inherit;">
+                    <div class="cert-icon"><img src="intercultural.jpg" alt="Intercultural"></div>
+                    <div>
+                        <div class="cert-name">Intercultural Skills Certificate</div>
+                        <div class="cert-issuer">Global Career Accelerator · 2025 · Verify ↗</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
 
-      </div>
-    </section>
+<!-- PROJECTS -->
+<div class="section" id="projects">
+    <div class="section-label">Projects</div>
+    <h2>What I've Built</h2>
+    <p class="section-sub">Real systems I built and still run.</p>
 
-    <!-- ===== Skills and certifications ===== -->
-    <section id="skills" class="container">
-      <h2>Skills</h2>
-      <dl class="skills">
-        <dt>Data</dt>
-        <dd>Salesforce reports and exports, Excel and Google Sheets (PivotTables, XLOOKUP), Looker Studio, Tableau, data cleaning and reconciliation, SQL (working knowledge)</dd>
-        <dt>Build</dt>
-        <dd>Google Apps Script, AppSheet, Python (scripting), JavaScript/TypeScript, REST APIs and JSON, Git</dd>
-        <dt>Infrastructure</dt>
-        <dd>Linux, Caddy and TLS, DNS, Tailscale, cron and systemd, monitoring and backups</dd>
-        <dt>AI</dt>
-        <dd>Local LLM serving, agent workflows with human approval, AI-assisted development</dd>
-      </dl>
+    <div class="projects-grid">
 
-      <h2>Certifications</h2>
-      <ul class="certs">
-        <li><a href="https://www.coursera.org/account/accomplishments/professional-cert/SVD5W6BVFOZI">Google Data Analytics Professional Certificate</a> (Coursera, 2026)</li>
-        <li><a href="https://www.credential.net/f1d22b65-01ef-48a4-b074-f7449c0d07b1#acc.BYwqoD1b">Data Analysis</a>, <a href="https://www.credential.net/738f5862-7a61-47ce-a8e8-cd807f1f4093#acc.cmiBEzFC">Data Visualization</a>, and <a href="https://www.credential.net/b3b6ef62-247c-40b0-b9af-592e0ce8c3b5#acc.LjX6NUpR">AI Professional Skills</a> (Global Career Accelerator, 2025)</li>
-      </ul>
-      <!-- <details> is a built-in HTML expand/collapse: no JavaScript needed -->
-      <details>
-        <summary>Individual Google courses (10)</summary>
-        <ul class="certs">
-          <li><a href="https://www.coursera.org/account/accomplishments/records/4544D3PTSZXE">Foundations: Data, Data, Everywhere</a></li>
-          <li><a href="https://www.coursera.org/account/accomplishments/records/HAYB44RS90H0">Ask Questions to Make Data-Driven Decisions</a></li>
-          <li><a href="https://www.coursera.org/account/accomplishments/records/3BEOVRCM64UR">Prepare Data for Exploration</a></li>
-          <li><a href="https://www.coursera.org/account/accomplishments/records/QJBK5NSCO49M">Process Data from Dirty to Clean</a></li>
-          <li><a href="https://www.coursera.org/account/accomplishments/records/1LYM14SLRTFT">Analyze Data to Answer Questions</a></li>
-          <li><a href="https://www.coursera.org/account/accomplishments/records/QWWSEKKZ0WST">Share Data Through the Art of Visualization</a></li>
-          <li><a href="https://www.coursera.org/account/accomplishments/records/7KCZDFJV1608">Google Data Analytics Capstone: Complete a Case Study</a></li>
-          <li><a href="https://www.coursera.org/account/accomplishments/records/642SJA6P448C">Introduction to Data Analysis Using Python</a></li>
-          <li><a href="https://www.coursera.org/account/accomplishments/records/EDIJ88YZAGFV">Accelerate Your Job Search with AI</a></li>
-          <li><a href="https://www.coursera.org/account/accomplishments/records/OOAIQSR77738">Foundations of Digital Marketing and E-commerce</a></li>
-        </ul>
-      </details>
-    </section>
+        <div class="project-card">
+            <img src="images/kiro.jpg" alt="KIRO MagSafe System" class="project-img">
+            <div class="project-info">
+                <span class="project-tag">Hardware · Product</span>
+                <h3>KIRO (in progress)</h3>
+                <p>A modular MagSafe accessory system in CNC-machined aluminum. I scoped the product and worked with two contract mechanical engineers to get from concept to aluminum parts. Product development is still in progress.</p>
+            </div>
+        </div>
 
-    <!-- ===== Education + contact ===== -->
-    <section id="contact" class="container">
-      <h2>Education</h2>
-      <p><strong>Michigan State University</strong>, B.A. Information Science, expected May 2027</p>
+        <div class="project-card">
+            <svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Content sites and search analytics illustration" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="200" fill="#111"/>
+                <rect x="40" y="36" width="200" height="128" rx="8" fill="#1c1c1c" stroke="#333"/>
+                <rect x="40" y="36" width="200" height="20" rx="8" fill="#222"/>
+                <circle cx="54" cy="46" r="3" fill="#555"/><circle cx="64" cy="46" r="3" fill="#555"/><circle cx="74" cy="46" r="3" fill="#555"/>
+                <rect x="56" y="70" width="120" height="8" rx="4" fill="#444"/>
+                <rect x="56" y="86" width="160" height="6" rx="3" fill="#2e2e2e"/>
+                <rect x="56" y="98" width="140" height="6" rx="3" fill="#2e2e2e"/>
+                <rect x="56" y="116" width="100" height="8" rx="4" fill="#444"/>
+                <rect x="56" y="132" width="160" height="6" rx="3" fill="#2e2e2e"/>
+                <rect x="56" y="144" width="120" height="6" rx="3" fill="#2e2e2e"/>
+                <polyline points="268,150 296,128 322,136 348,98 372,70" fill="none" stroke="#bbb" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="372" cy="70" r="5" fill="#fff"/>
+                <line x1="262" y1="164" x2="378" y2="164" stroke="#333" stroke-width="2"/>
+            </svg>
+            <div class="project-info">
+                <span class="project-tag">Web · SEO · Analytics</span>
+                <h3>Referral Content Sites</h3>
+                <p>Four content sites (380+ pages) built with Python static-site generators, JSON-LD structured data, GA4 and Search Console tracking, IndexNow, and automated monthly rebuilds. 14,000+ Google search clicks in the 90 days ending Oct 2026.</p>
+            </div>
+        </div>
 
-      <h2>Contact</h2>
-      <p>Open to full-time roles in presales and solutions engineering, data and automation, and forward-deployed work starting May 2027. Happy to relocate.</p>
-      <ul class="contact">
-        <li>Email: <a href="mailto:macstafford123@gmail.com">macstafford123@gmail.com</a></li>
-        <li>LinkedIn: <a href="https://linkedin.com/in/macadam-stafford">linkedin.com/in/macadam-stafford</a></li>
-        <li>GitHub: <a href="https://github.com/macstafford123">github.com/macstafford123</a></li>
-      </ul>
-    </section>
+        <div class="project-card">
+            <svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Agent system illustration" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="200" fill="#111"/>
+                <g stroke="#3a3a3a" stroke-width="2">
+                    <line x1="200" y1="100" x2="90" y2="50"/><line x1="200" y1="100" x2="90" y2="150"/>
+                    <line x1="200" y1="100" x2="310" y2="50"/><line x1="200" y1="100" x2="310" y2="150"/>
+                    <line x1="200" y1="100" x2="200" y2="30"/><line x1="200" y1="100" x2="200" y2="170"/>
+                </g>
+                <rect x="166" y="78" width="68" height="44" rx="10" fill="#fff"/>
+                <rect x="180" y="94" width="40" height="5" rx="2.5" fill="#111"/><rect x="180" y="104" width="28" height="5" rx="2.5" fill="#777"/>
+                <g fill="#1e1e1e" stroke="#555" stroke-width="1.5">
+                    <circle cx="90" cy="50" r="16"/><circle cx="90" cy="150" r="16"/>
+                    <circle cx="310" cy="50" r="16"/><circle cx="310" cy="150" r="16"/>
+                    <circle cx="200" cy="30" r="12"/><circle cx="200" cy="170" r="12"/>
+                </g>
+                <g fill="#aaa"><circle cx="90" cy="50" r="4"/><circle cx="90" cy="150" r="4"/><circle cx="310" cy="50" r="4"/><circle cx="310" cy="150" r="4"/><circle cx="200" cy="30" r="3"/><circle cx="200" cy="170" r="3"/></g>
+            </svg>
+            <div class="project-info">
+                <span class="project-tag">Automation · Analytics</span>
+                <h3>AI Operations Platform</h3>
+                <p>A 24/7 multi-agent system across a cloud Linux server and a Mac Studio serving a local 27B-parameter language model, with one priority job queue, an always-on research worker, and a human approval inbox: nothing goes out without my sign-off. A Next.js Mission Control dashboard sits on top: 14 live data feeds, 80+ scheduled jobs, and a health sweep every 5 minutes that restarts failed services.</p>
+            </div>
+        </div>
 
-  </main>
+        <div class="project-card">
+            <svg viewBox="0 0 400 200" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Server infrastructure illustration" xmlns="http://www.w3.org/2000/svg">
+                <rect width="400" height="200" fill="#111"/>
+                <g fill="#1c1c1c" stroke="#333">
+                    <rect x="60" y="40" width="130" height="34" rx="6"/><rect x="60" y="83" width="130" height="34" rx="6"/><rect x="60" y="126" width="130" height="34" rx="6"/>
+                </g>
+                <g fill="#4ade80"><circle cx="78" cy="57" r="4"/><circle cx="78" cy="100" r="4"/><circle cx="78" cy="143" r="4"/></g>
+                <g fill="#3a3a3a"><rect x="94" y="54" width="60" height="6" rx="3"/><rect x="94" y="97" width="60" height="6" rx="3"/><rect x="94" y="140" width="60" height="6" rx="3"/></g>
+                <rect x="220" y="40" width="130" height="120" rx="8" fill="#0b0b0b" stroke="#333"/>
+                <path d="M236 64 l8 6 l-8 6" fill="none" stroke="#bbb" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <rect x="252" y="67" width="70" height="6" rx="3" fill="#444"/>
+                <rect x="236" y="88" width="96" height="6" rx="3" fill="#2a2a2a"/>
+                <rect x="236" y="104" width="80" height="6" rx="3" fill="#2a2a2a"/>
+                <rect x="236" y="120" width="88" height="6" rx="3" fill="#2a2a2a"/>
+                <rect x="236" y="138" width="10" height="12" fill="#bbb"/>
+            </svg>
+            <div class="project-info">
+                <span class="project-tag">Infrastructure · DevOps</span>
+                <h3>Self-Hosted Infrastructure</h3>
+                <p>I run the servers behind the four content sites myself on a Linux VPS: Caddy with automatic HTTPS, fail2ban, a private Tailscale network for internal tools, nightly offsite backups, and cron and systemd scheduling. Self-taught across Linux, DNS, TLS, networking, and deployment.</p>
+            </div>
+        </div>
 
-  <footer class="site-footer">
-    <p class="container">MacAdam Stafford. Plain HTML and CSS, no frameworks. Hosted on GitHub Pages.</p>
-  </footer>
+    </div>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="section" id="experience">
+    <div class="section-label">Experience</div>
+    <h2>Work History</h2>
+
+    <div class="experience-list">
+
+        <div class="exp-item">
+            <div>
+                <div class="exp-date">May 2026 – Present</div>
+                <div class="exp-company">Motorola Solutions</div>
+            </div>
+            <div class="exp-content">
+                <h3>Presales COE Co-op</h3>
+                <p>Presales COE Co-op since Aug 2026 (intern May to Aug 2026). Built and deployed a budgetary pricing app (AppSheet front end, Google Apps Script engine) that turns a live master price list into PDF estimates, and wrote the seller quick-start guide for rollout. Rebuilt a quote comparison tool so every pricing change is computed in code and reconciles to the dollar, with AI limited to an optional written summary. Designed a Looker Studio dashboard that consolidated three overlapping pricing tools into one view for leadership; my manager signed off on it and escalated it to senior leadership. Analyzed 13,000+ Salesforce records and delivered a median-based turnaround analysis to presales leadership. Replaced a 16-sheet manual tracker with one auto-refreshing view on a live Salesforce feed of 32,000+ records, and led phase one of a three-tool pricing consolidation that produced a 7,000+ row reconciled master price list.</p>
+                <span class="exp-badge">Current</span>
+            </div>
+        </div>
+
+        <div class="exp-item">
+            <div>
+                <div class="exp-date">Dec 2024 – Present</div>
+                <div class="exp-company">Self-Employed</div>
+            </div>
+            <div class="exp-content">
+                <h3>Founder and Automation Developer</h3>
+                <p>Built and run a referral-marketing business that connects people with health-program referral offers through content sites and automated follow-up: 1,300+ completed referrals since launch. I built the lead-capture forms and a Python routing service that applies eligibility rules, logs every click, and sends alerts and follow-up email, and I handle the content, SEO, and analytics myself.</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-section" id="contact">
+    <div class="contact-inner">
+        <div class="contact-text">
+            <div class="section-label" style="color: #555;">Contact</div>
+            <h2>Let's Connect</h2>
+            <p>Open to full-time roles in presales and solutions engineering, data and automation, and forward-deployed work starting May 2027. Happy to relocate. Also happy to connect around KIRO, automation projects, or anything interesting.</p>
+            <div class="contact-links">
+                <a href="mailto:macstafford123@gmail.com" class="contact-link">
+                    <span class="contact-link-icon">✉️</span>
+                    macstafford123@gmail.com
+                </a>
+                <a href="https://linkedin.com/in/macadam-stafford" target="_blank" class="contact-link">
+                    <span class="contact-link-icon">💼</span>
+                    linkedin.com/in/macadam-stafford
+                </a>
+                <a href="https://github.com/macstafford123" target="_blank" class="contact-link">
+                    <span class="contact-link-icon">💻</span>
+                    github.com/macstafford123
+                </a>
+            </div>
+        </div>
+        <form action="https://formspree.io/f/xnjbznnr" method="POST">
+            <input type="hidden" name="_subject" value="Portfolio Contact, MacAdam Stafford">
+            <input type="text" name="name" placeholder="Your name" required />
+            <input type="email" name="email" placeholder="Your email" required />
+            <textarea name="message" placeholder="What's on your mind?" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>MacAdam Stafford · MSU Information Science '27 ·
+        <a href="https://linkedin.com/in/macadam-stafford" target="_blank">LinkedIn</a> ·
+        <a href="https://github.com/macstafford123" target="_blank">GitHub</a>
+    </p>
+</footer>
 
 </body>
 </html>
